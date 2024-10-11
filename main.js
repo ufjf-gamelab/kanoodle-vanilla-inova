@@ -9,8 +9,6 @@ for (let linha = 0; linha < 5; linha++) {
   }
 }
 
-tabuleiro[1][3] = "a";
-console.log(tabuleiro);
 document.body.appendChild(imprimeTabuleiro(tabuleiro));
 
 // Cria lista de peças
@@ -18,7 +16,12 @@ const pecas = {
   a: {
     disponivel: true,
     tipo: "a",
-    formato: [[0, 0]],
+    formato: [
+      [0, 0],
+      [0, 1],
+      [0, -1],
+      [0, -2],
+    ],
   },
   b: {
     disponivel: true,
@@ -26,6 +29,8 @@ const pecas = {
     formato: [
       [0, 0],
       [0, 1],
+      [1, 0],
+      [1, 1],
     ],
   },
   c: {
@@ -37,7 +42,7 @@ const pecas = {
       [0, -1],
       [1, 1],
     ],
-  }
+  },
 };
 
 document.body.appendChild(imprimePecas(pecas));
@@ -59,7 +64,6 @@ function imprimePeca(peca) {
     const div = document.createElement("div");
     div.classList.add("celula");
     div.classList.add(peca.tipo);
-    div.textContent = peca.tipo;
     item.appendChild(div);
     div.style.gridColumn = 3 + peca.formato[celula][1];
     div.style.gridRow = 3 + peca.formato[celula][0];
