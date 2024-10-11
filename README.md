@@ -1,8 +1,9 @@
 # kanoodle-vanilla-inova
 
-- [ ] Listagem de peças
+- [x] Listagem de peças
     - [x] Estado da lista de peças
-    - [ ] Desenhar as peças
+    - [x] Desenhar as peças
+    - [ ] Clicar em uma peça seleciona ela
 - [ ] Capacidade de selecionar uma peça
 - [ ] Girar a peça e espelhar
 - [ ] Colocar uma peça no tabuleiro

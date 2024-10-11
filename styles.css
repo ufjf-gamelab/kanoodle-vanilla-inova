@@ -11,5 +11,26 @@
     box-sizing: border-box;
     place-items: center;
     display: grid;
+
 }
 
+.peca {
+    border: 1px solid black;
+    display: grid;
+    width: 10em;
+    height: 10em;
+    grid-template-columns: repeat(5, 2em);
+    grid-template-rows: repeat(5, 2em);
+}
+
+.a {
+    background-color: rgb(60, 50, 50);
+}
+
+.b {
+    background-color: rgb(214, 74, 74);
+}
+
+.c {
+    background-color: rgb(255, 165, 0);
+}

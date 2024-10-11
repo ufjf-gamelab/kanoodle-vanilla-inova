@@ -23,25 +23,49 @@ const pecas = {
   b: {
     disponivel: true,
     tipo: "b",
-    formato: [[0, 0],[0, 1]],
+    formato: [
+      [0, 0],
+      [0, 1],
+    ],
   },
+  c: {
+    disponivel: true,
+    tipo: "c",
+    formato: [
+      [0, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+    ],
+  }
 };
 
 document.body.appendChild(imprimePecas(pecas));
 
 function imprimePecas(listaPecas) {
   const pecas = document.createElement("ol");
-  pecas.classList.add("pecas")
-  for(let chave in listaPecas){
-    console.log(chave);
-    const peca = document.createElement("li");
-    peca.classList.add("peca");
-    peca.textContent = listaPecas[chave].tipo;
-    pecas.appendChild(peca);
+  pecas.classList.add("pecas");
+  for (let chave in listaPecas) {
+    pecas.appendChild(imprimePeca(listaPecas[chave]));
   }
-  
-
   return pecas;
+}
+
+function imprimePeca(peca) {
+  const item = document.createElement("li");
+  item.classList.add("peca");
+
+  for (let celula = 0; celula < peca.formato.length; celula++) {
+    const div = document.createElement("div");
+    div.classList.add("celula");
+    div.classList.add(peca.tipo);
+    div.textContent = peca.tipo;
+    item.appendChild(div);
+    div.style.gridColumn = 3 + peca.formato[celula][1];
+    div.style.gridRow = 3 + peca.formato[celula][0];
+  }
+
+  return item;
 }
 
 function imprimeTabuleiro(tabuleiro) {
