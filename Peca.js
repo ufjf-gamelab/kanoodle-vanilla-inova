@@ -55,6 +55,9 @@ export function imprimePecas(listaPecas, onPecaClick) {
   const pecas = document.createElement("ol");
   pecas.classList.add("pecas");
   for (let chave in listaPecas) {
+    if(!listaPecas[chave].disponivel){
+        continue;
+    }
     const ePeca = imprimePeca(listaPecas[chave]);
     pecas.appendChild(ePeca);
     ePeca.addEventListener("click", () => {onPecaClick(listaPecas[chave])})
