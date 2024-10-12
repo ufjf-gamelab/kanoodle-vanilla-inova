@@ -1,6 +1,7 @@
 //Cria estado do tabuleiro
 
 const tabuleiro = [];
+let pecaSelecionada = null; 
 
 for (let linha = 0; linha < 5; linha++) {
   tabuleiro[linha] = [];
@@ -44,7 +45,9 @@ const pecas = {
 };
 
 colocarPeca(tabuleiro, pecas.c, 3, 5);
-retirarPeca(tabuleiro, -1, -4);
+liberaPeca(tabuleiro, 3, 5, pecas);
+colocarPeca(tabuleiro, pecas.c, 1, 5);
+
 document.body.appendChild(imprimeTabuleiro(tabuleiro));
 document.body.appendChild(imprimePecas(pecas));
 
@@ -131,6 +134,10 @@ function podePosicionar(tabuleiro, peca, linha, coluna){
 }
 
 function colocarPeca(tabuleiro, peca, linha, coluna){
+  if(!peca.disponivel){
+    return;
+  }
+
   if(!podePosicionar(tabuleiro, peca, linha, coluna)){
     return;
   }
@@ -141,13 +148,15 @@ function colocarPeca(tabuleiro, peca, linha, coluna){
     const AC = coluna + pedaco[1];
     tabuleiro[AL][AC] = peca.tipo;
   }
+
+  peca.disponivel = false;
 }
 
 function retirarPeca(tabuleiro, linha, coluna){
   if(linha < 0 || linha >= 5 || coluna < 0 || coluna >= 11){
     return;
   }
-  
+
   if(tabuleiro[linha][coluna] === " "){
     return;
   }
@@ -158,5 +167,27 @@ function retirarPeca(tabuleiro, linha, coluna){
         tabuleiro[l][c] = " ";
       }
     }
+  }
+
+  return tipo;
+}
+
+function selecionaPeca(pecaSelecionada, peca){
+  if(!peca.disponivel){
+    return;
+  }
+
+  if(pecaSelecionada === peca){
+    pecaSelecionada = null;
+  }
+
+  pecaSelecionada = peca;
+}
+
+
+function liberaPeca(tabuleiro, linha, coluna, pecas){
+  const tipo = retirarPeca(tabuleiro, linha, coluna);
+  if(tipo !== undefined){
+    pecas[tipo].disponivel = true;
   }
 }

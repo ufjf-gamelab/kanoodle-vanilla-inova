@@ -4,7 +4,7 @@
     - [x] Estado da lista de peças
     - [x] Desenhar as peças
     - [ ] Clicar em uma peça seleciona ela
-- [ ] Capacidade de selecionar uma peça
+- [x] Capacidade de selecionar uma peça
 - [x] Girar a peça e espelhar
     - [x] Girar horário
     - [x] Girar anti-horário
