@@ -5,7 +5,10 @@
     - [x] Desenhar as peças
     - [ ] Clicar em uma peça seleciona ela
 - [ ] Capacidade de selecionar uma peça
-- [ ] Girar a peça e espelhar
+- [x] Girar a peça e espelhar
+    - [x] Girar horário
+    - [x] Girar anti-horário
+    - [x] Espelhar
 - [ ] Colocar uma peça no tabuleiro
     - [x] Estado do tabuleiro
     - [x] Desenhar o tabuleiro

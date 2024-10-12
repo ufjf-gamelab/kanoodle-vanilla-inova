@@ -87,3 +87,28 @@ function imprimeTabuleiro(tabuleiro) {
 
   return item;
 }
+
+function giraHorario(peca){
+  for(let i = 0; i < peca.formato.length; i++){
+    const pedaco = peca.formato[i];
+    const aux = pedaco[0];
+    pedaco[0] = pedaco[1];
+    pedaco[1] = -aux;
+  }
+}
+
+function giraAntiHorario(peca){
+  for(let i = 0; i < peca.formato.length; i++){
+    const pedaco = peca.formato[i];
+    const aux = pedaco[0];
+    pedaco[0] = -pedaco[1];
+    pedaco[1] = aux;
+  }
+}
+
+function espelha(peca){
+  for(let i = 0; i < peca.formato.length; i++){
+    const pedaco = peca.formato[i];
+    pedaco[1] = -pedaco[1];
+  }
+}
