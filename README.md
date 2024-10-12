@@ -14,4 +14,4 @@
     - [x] Desenhar o tabuleiro
     - [x] Não pode posicionar fora do tabuleiro
     - [x] Não pode posicionar acima de outra peça
-- [ ] Remover uma peça do tabuleiro
+- [x] Remover uma peça do tabuleiro

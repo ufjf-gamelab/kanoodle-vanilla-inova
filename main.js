@@ -43,6 +43,8 @@ const pecas = {
   },
 };
 
+colocarPeca(tabuleiro, pecas.c, 3, 5);
+retirarPeca(tabuleiro, -1, -4);
 document.body.appendChild(imprimeTabuleiro(tabuleiro));
 document.body.appendChild(imprimePecas(pecas));
 
@@ -138,5 +140,23 @@ function colocarPeca(tabuleiro, peca, linha, coluna){
     const AL = linha + pedaco[0];
     const AC = coluna + pedaco[1];
     tabuleiro[AL][AC] = peca.tipo;
+  }
+}
+
+function retirarPeca(tabuleiro, linha, coluna){
+  if(linha < 0 || linha >= 5 || coluna < 0 || coluna >= 11){
+    return;
+  }
+  
+  if(tabuleiro[linha][coluna] === " "){
+    return;
+  }
+  const tipo = tabuleiro[linha][coluna];
+  for(let l = 0; l < 5; l++){
+    for(let c = 0; c < 11; c++){
+      if(tabuleiro[l][c] === tipo){
+        tabuleiro[l][c] = " ";
+      }
+    }
   }
 }
