@@ -9,8 +9,6 @@ for (let linha = 0; linha < 5; linha++) {
   }
 }
 
-document.body.appendChild(imprimeTabuleiro(tabuleiro));
-
 // Cria lista de peças
 const pecas = {
   a: {
@@ -45,6 +43,7 @@ const pecas = {
   },
 };
 
+document.body.appendChild(imprimeTabuleiro(tabuleiro));
 document.body.appendChild(imprimePecas(pecas));
 
 function imprimePecas(listaPecas) {
@@ -110,5 +109,34 @@ function espelha(peca){
   for(let i = 0; i < peca.formato.length; i++){
     const pedaco = peca.formato[i];
     pedaco[1] = -pedaco[1];
+  }
+}
+
+function podePosicionar(tabuleiro, peca, linha, coluna){
+  for(let i = 0; i < peca.formato.length; i++){
+    const pedaco = peca.formato[i];
+    const AL = linha + pedaco[0];
+    const AC = coluna + pedaco[1];
+    if(AL < 0 || AL >= 5 || AC < 0 || AC >= 11){
+      return false;
+    }
+    if(tabuleiro[AL][AC] !== " "){
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function colocarPeca(tabuleiro, peca, linha, coluna){
+  if(!podePosicionar(tabuleiro, peca, linha, coluna)){
+    return;
+  }
+
+  for(let i = 0; i < peca.formato.length; i++){
+    const pedaco = peca.formato[i];
+    const AL = linha + pedaco[0];
+    const AC = coluna + pedaco[1];
+    tabuleiro[AL][AC] = peca.tipo;
   }
 }

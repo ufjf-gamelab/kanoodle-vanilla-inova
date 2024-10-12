@@ -9,7 +9,9 @@
     - [x] Girar horário
     - [x] Girar anti-horário
     - [x] Espelhar
-- [ ] Colocar uma peça no tabuleiro
+- [x] Colocar uma peça no tabuleiro
     - [x] Estado do tabuleiro
     - [x] Desenhar o tabuleiro
+    - [x] Não pode posicionar fora do tabuleiro
+    - [x] Não pode posicionar acima de outra peça
 - [ ] Remover uma peça do tabuleiro
