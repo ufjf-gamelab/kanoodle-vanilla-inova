@@ -60,7 +60,7 @@ function podePosicionar(tabuleiro, peca, linha, coluna) {
   return true;
 }
 
-export function imprimeTabuleiro(tabuleiro) {
+export function imprimeTabuleiro(tabuleiro, onCelulaClicada) {
   const item = document.createElement("div");
   item.classList.add("tabuleiro");
 
@@ -70,6 +70,10 @@ export function imprimeTabuleiro(tabuleiro) {
       div.classList.add("celula");
       div.textContent = tabuleiro[linha][coluna];
       item.appendChild(div);
+
+      div.addEventListener("click", () => {
+        onCelulaClicada(linha, coluna);
+      });
     }
   }
 

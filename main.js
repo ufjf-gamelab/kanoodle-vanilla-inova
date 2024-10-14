@@ -46,10 +46,14 @@ const pecas = {
   },
 };
 
-document.body.appendChild(imprimeTabuleiro(tabuleiro));
+document.body.appendChild(imprimeTabuleiro(tabuleiro, onCelulaClicada));
 document.body.appendChild(imprimePecas(pecas, onPecaClicada));
 
-function onPecaClicada(peca){
+function onCelulaClicada(linha, coluna) {
+  console.log(`Célula clicada: linha ${linha}, coluna ${coluna}`);
+}
+
+function onPecaClicada(peca) {
   console.log(peca);
 
   if (pecaSelecionada) {
@@ -57,10 +61,10 @@ function onPecaClicada(peca){
   }
 
   selecionaPeca(pecaSelecionada, peca);
-  
+
   pecaSelecionada = peca;
   peca.disponivel = false;
 
-  document.body.removeChild(document.querySelector('.pecas'));
+  document.body.removeChild(document.querySelector(".pecas"));
   document.body.appendChild(imprimePecas(pecas, onPecaClicada));
 }

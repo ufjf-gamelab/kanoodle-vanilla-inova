@@ -3,7 +3,7 @@
 - [x] Listagem de peças
     - [x] Estado da lista de peças
     - [x] Desenhar as peças
-    - [ ] Clicar em uma peça seleciona ela
+    - [x] Clicar em uma peça seleciona ela
 - [x] Capacidade de selecionar uma peça
 - [x] Girar a peça e espelhar
     - [x] Girar horário
@@ -15,3 +15,6 @@
     - [x] Não pode posicionar fora do tabuleiro
     - [x] Não pode posicionar acima de outra peça
 - [x] Remover uma peça do tabuleiro
+- [x] Capacidade de clicar no tabuleiro
+    - [x] Clique retorna posição da célula clicada
+    - [ ] Clique imprime peça
