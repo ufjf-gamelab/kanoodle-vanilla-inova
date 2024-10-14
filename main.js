@@ -51,6 +51,36 @@ const pecas = {
       [1, 1],
     ],
   },
+  d: {
+    disponivel: true,
+    tipo: "d",
+    formato: [
+      [0, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+    ],
+  },
+  e: {
+    disponivel: true,
+    tipo: "e",
+    formato: [
+      [0, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+    ],
+  },
+  f: {
+    disponivel: true,
+    tipo: "f",
+    formato: [
+      [0, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+    ],
+  },
 };
 const eTabuleiro = document.querySelector("#tabuleiro");
 const ePecaSelecionada = document.querySelector("#pecaSelecionada");
