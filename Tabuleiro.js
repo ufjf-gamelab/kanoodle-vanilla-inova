@@ -25,13 +25,13 @@ function retirarPeca(tabuleiro, linha, coluna) {
   return tipo;
 }
 
-function colocarPeca(tabuleiro, peca, linha, coluna) {
-  if (!peca.disponivel) {
-    return;
+export function colocarPeca(tabuleiro, peca, linha, coluna) {
+  if (!peca?.disponivel) {
+    return false;
   }
 
   if (!podePosicionar(tabuleiro, peca, linha, coluna)) {
-    return;
+    return false;
   }
 
   for (let i = 0; i < peca.formato.length; i++) {
@@ -42,6 +42,8 @@ function colocarPeca(tabuleiro, peca, linha, coluna) {
   }
 
   peca.disponivel = false;
+
+  return true;
 }
 
 function podePosicionar(tabuleiro, peca, linha, coluna) {

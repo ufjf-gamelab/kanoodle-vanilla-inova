@@ -55,11 +55,11 @@ export function imprimePeca(peca) {
   return item;
 }
 
-export function imprimePecas(listaPecas, onPecaClick) {
+export function imprimePecas(listaPecas, pecaSelecionada, onPecaClick) {
   const pecas = document.createElement("ol");
   pecas.classList.add("pecas");
   for (let chave in listaPecas) {
-    if(!listaPecas[chave].disponivel){
+    if(listaPecas[chave] === pecaSelecionada || !listaPecas[chave].disponivel){
         continue;
     }
     const ePeca = imprimePeca(listaPecas[chave]);
