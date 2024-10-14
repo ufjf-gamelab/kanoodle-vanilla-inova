@@ -51,5 +51,16 @@ document.body.appendChild(imprimePecas(pecas, onPecaClicada));
 
 function onPecaClicada(peca){
   console.log(peca);
+
+  if (pecaSelecionada) {
+    pecaSelecionada.disponivel = true;
+  }
+
   selecionaPeca(pecaSelecionada, peca);
+  
+  pecaSelecionada = peca;
+  peca.disponivel = false;
+
+  document.body.removeChild(document.querySelector('.pecas'));
+  document.body.appendChild(imprimePecas(pecas, onPecaClicada));
 }
