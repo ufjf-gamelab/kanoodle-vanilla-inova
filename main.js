@@ -6,7 +6,7 @@ import {
   giraAntiHorario,
   espelha,
 } from "./Peca.js";
-import { colocarPeca, imprimeTabuleiro } from "./Tabuleiro.js";
+import { colocarPeca, imprimeTabuleiro, liberaPeca } from "./Tabuleiro.js";
 
 //Cria estado do tabuleiro
 const tabuleiro = [];
@@ -76,6 +76,17 @@ ePecaSelecionada.append(imprimePeca(pecaSelecionada));
 
 function onCelulaClicada(linha, coluna) {
   console.log(`Célula clicada: linha ${linha}, coluna ${coluna}`);
+  if (tabuleiro[linha][coluna] !== " ") {
+    liberaPeca(tabuleiro, linha, coluna, pecas);
+    eTabuleiro.innerHTML = "";
+    eTabuleiro.appendChild(imprimeTabuleiro(tabuleiro, onCelulaClicada));
+    ePecasDisponiveis.innerHTML = "";
+    ePecasDisponiveis.appendChild(
+      imprimePecas(pecas, pecaSelecionada, onPecaClicada)
+    );
+    return;
+  }
+
   if (colocarPeca(tabuleiro, pecaSelecionada, linha, coluna)) {
     pecaSelecionada = null;
     eTabuleiro.innerHTML = "";

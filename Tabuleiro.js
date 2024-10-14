@@ -1,4 +1,4 @@
-function liberaPeca(tabuleiro, linha, coluna, pecas) {
+export function liberaPeca(tabuleiro, linha, coluna, pecas) {
   const tipo = retirarPeca(tabuleiro, linha, coluna);
   if (tipo !== undefined) {
     pecas[tipo].disponivel = true;
@@ -70,7 +70,9 @@ export function imprimeTabuleiro(tabuleiro, onCelulaClicada) {
     for (let coluna = 0; coluna < 11; coluna++) {
       const div = document.createElement("div");
       div.classList.add("celula");
-      div.textContent = tabuleiro[linha][coluna];
+      if (tabuleiro[linha][coluna] !== " "){
+        div.classList.add(tabuleiro[linha][coluna]);
+      }
       item.appendChild(div);
 
       div.addEventListener("click", () => {
