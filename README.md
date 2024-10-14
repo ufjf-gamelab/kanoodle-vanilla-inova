@@ -5,6 +5,8 @@
     - [x] Desenhar as peças
     - [x] Clicar em uma peça seleciona ela
 - [x] Capacidade de selecionar uma peça
+    - [x] Exibe a peça selecionada
+    - [x] Clicar em uma peça na lista de peças a seleciona
 - [x] Girar a peça e espelhar
     - [x] Girar horário
     - [x] Girar anti-horário

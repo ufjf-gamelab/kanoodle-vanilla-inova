@@ -1,4 +1,4 @@
-import { imprimePecas, selecionaPeca } from "./Peca.js";
+import { imprimePecas, selecionaPeca, imprimePeca } from "./Peca.js";
 import { imprimeTabuleiro } from "./Tabuleiro.js";
 
 //Cria estado do tabuleiro
@@ -45,9 +45,16 @@ const pecas = {
     ],
   },
 };
+const eTabuleiro = document.querySelector("#tabuleiro");
+const ePecaSelecionada = document.querySelector("#pecaSelecionada");
+const ePecasDisponiveis = document.querySelector("#pecasDisponiveis");
 
-document.body.appendChild(imprimeTabuleiro(tabuleiro, onCelulaClicada));
-document.body.appendChild(imprimePecas(pecas, onPecaClicada));
+eTabuleiro.innerHTML = "";
+eTabuleiro.appendChild(imprimeTabuleiro(tabuleiro, onCelulaClicada));
+ePecasDisponiveis.innerHTML = "";
+ePecasDisponiveis.appendChild(imprimePecas(pecas, onPecaClicada));
+ePecaSelecionada.innerHTML = "";
+ePecaSelecionada.append(imprimePeca(pecaSelecionada));
 
 function onCelulaClicada(linha, coluna) {
   console.log(`Célula clicada: linha ${linha}, coluna ${coluna}`);
@@ -65,6 +72,9 @@ function onPecaClicada(peca) {
   pecaSelecionada = peca;
   peca.disponivel = false;
 
-  document.body.removeChild(document.querySelector(".pecas"));
-  document.body.appendChild(imprimePecas(pecas, onPecaClicada));
+  ePecasDisponiveis.innerHTML = "";
+  ePecasDisponiveis.appendChild(imprimePecas(pecas, onPecaClicada));
+  ePecaSelecionada.innerHTML = "";
+  ePecaSelecionada.append(imprimePeca(pecaSelecionada));
 }
+

@@ -35,7 +35,11 @@ function espelha(peca) {
   }
 }
 
-function imprimePeca(peca) {
+export function imprimePeca(peca) {
+  if (peca === null) {
+    return "";
+  }
+
   const item = document.createElement("li");
   item.classList.add("peca");
 
