@@ -10,7 +10,7 @@ export function selecionaPeca(pecaSelecionada, peca) {
   pecaSelecionada = peca;
 }
 
-function giraHorario(peca) {
+export function giraHorario(peca) {
   for (let i = 0; i < peca.formato.length; i++) {
     const pedaco = peca.formato[i];
     const aux = pedaco[0];
@@ -19,7 +19,7 @@ function giraHorario(peca) {
   }
 }
 
-function giraAntiHorario(peca) {
+export function giraAntiHorario(peca) {
   for (let i = 0; i < peca.formato.length; i++) {
     const pedaco = peca.formato[i];
     const aux = pedaco[0];
@@ -28,7 +28,7 @@ function giraAntiHorario(peca) {
   }
 }
 
-function espelha(peca) {
+export function espelha(peca) {
   for (let i = 0; i < peca.formato.length; i++) {
     const pedaco = peca.formato[i];
     pedaco[1] = -pedaco[1];

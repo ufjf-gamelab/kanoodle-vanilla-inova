@@ -1,4 +1,4 @@
-import { imprimePecas, selecionaPeca, imprimePeca } from "./Peca.js";
+import { imprimePecas, selecionaPeca, imprimePeca, giraHorario, giraAntiHorario, espelha } from "./Peca.js";
 import { imprimeTabuleiro } from "./Tabuleiro.js";
 
 //Cria estado do tabuleiro
@@ -49,6 +49,16 @@ const eTabuleiro = document.querySelector("#tabuleiro");
 const ePecaSelecionada = document.querySelector("#pecaSelecionada");
 const ePecasDisponiveis = document.querySelector("#pecasDisponiveis");
 
+const eGiraH = document.querySelector("#giraHorario");
+eGiraH.addEventListener("click", giraPecaHorarioClick);
+
+const eGiraAH = document.querySelector("#giraAntiHorario");
+eGiraAH.addEventListener("click", giraPecaAntiHorarioClick);
+
+const eEspelha = document.querySelector("#espelhaPeca");
+eEspelha.addEventListener("click", espelhaPecaClick);
+
+
 eTabuleiro.innerHTML = "";
 eTabuleiro.appendChild(imprimeTabuleiro(tabuleiro, onCelulaClicada));
 ePecasDisponiveis.innerHTML = "";
@@ -78,3 +88,25 @@ function onPecaClicada(peca) {
   ePecaSelecionada.append(imprimePeca(pecaSelecionada));
 }
 
+function giraPecaHorarioClick(){
+  if (pecaSelecionada !== null) {
+    giraHorario(pecaSelecionada);
+    ePecaSelecionada.innerHTML = "";
+    ePecaSelecionada.append(imprimePeca(pecaSelecionada));
+  }
+}
+
+function giraPecaAntiHorarioClick(){
+  if (pecaSelecionada !== null) {
+    giraAntiHorario(pecaSelecionada);
+    ePecaSelecionada.innerHTML = "";
+    ePecaSelecionada.append(imprimePeca(pecaSelecionada));
+  }
+}
+function espelhaPecaClick(){
+  if (pecaSelecionada !== null) {
+    espelha(pecaSelecionada);
+    ePecaSelecionada.innerHTML = "";
+    ePecaSelecionada.append(imprimePeca(pecaSelecionada));
+  }
+}
